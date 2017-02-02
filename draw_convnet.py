@@ -40,7 +40,7 @@ from matplotlib.collections import PatchCollection
 
 
 NumConvMax = 8
-NumFcMax = 20
+NumFcMax = 10
 White = 1.
 Light = 0.7
 Medium = 0.5
@@ -114,8 +114,8 @@ if __name__ == '__main__':
 
     ############################
     # conv layers
-    size_list = [32, 18, 10, 6, 4]
-    num_list = [3, 32, 32, 48, 48]
+    size_list = [24, 20, 10, 6, 3]
+    num_list = [1, 8, 8, 16, 16]
     x_diff_list = [0, layer_width, layer_width, layer_width, layer_width]
     text_list = ['Inputs'] + ['Feature\nmaps'] * (len(size_list) - 1)
     loc_diff_list = [[3, -3]] * len(size_list)
@@ -149,7 +149,7 @@ if __name__ == '__main__':
     ############################
     # fully connected layers
     size_list = [fc_unit_size, fc_unit_size, fc_unit_size]
-    num_list = [768, 500, 2]
+    num_list = [48, 24, 1]
     num_show_list = list(map(min, num_list, [NumFcMax] * len(num_list)))
     x_diff_list = [sum(x_diff_list) + layer_width, layer_width, layer_width]
     top_left_list = np.c_[np.cumsum(x_diff_list), np.zeros(len(x_diff_list))]
