@@ -98,7 +98,7 @@ def add_mapping(patches, colors, start_ratio, patch_size, ind_bgn,
 
 def label(xy, text, xy_off=[0, 4]):
     plt.text(xy[0] + xy_off[0], xy[1] + xy_off[1], text,
-             family='sans-serif', size=8)
+             family='serif', size=8)
 
 
 if __name__ == '__main__':
@@ -148,8 +148,8 @@ if __name__ == '__main__':
 
     ############################
     # fully connected layers
-    size_list = [fc_unit_size, fc_unit_size, fc_unit_size]
-    num_list = [48, 24, 1]
+    size_list = [fc_unit_size, fc_unit_size]
+    num_list = [24, 1]
     num_show_list = list(map(min, num_list, [NumFcMax] * len(num_list)))
     x_diff_list = [sum(x_diff_list) + layer_width, layer_width, layer_width]
     top_left_list = np.c_[np.cumsum(x_diff_list), np.zeros(len(x_diff_list))]
@@ -162,7 +162,7 @@ if __name__ == '__main__':
         label(top_left_list[ind], text_list[ind] + '\n{}'.format(
             num_list[ind]))
 
-    text_list = ['Flatten\n', 'Fully\nconnected', 'Fully\nconnected']
+    text_list = ['Fully\nconnected', 'Fully\nconnected']
 
     for ind in range(len(size_list)):
         label(top_left_list[ind], text_list[ind], xy_off=[-10, -65])
