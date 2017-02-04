@@ -32,6 +32,8 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
 
 import os
 import numpy as np
+import matplotlib
+matplotlib.use('Qt5Agg')
 import matplotlib.pyplot as plt
 plt.rcdefaults()
 from matplotlib.lines import Line2D
@@ -83,16 +85,18 @@ def add_mapping(patches, colors, start_ratio, patch_size, ind_bgn,
     patches.append(Rectangle(start_loc, patch_size, patch_size))
     colors.append(Dark)
     patches.append(Line2D([start_loc[0], end_loc[0]],
-                          [start_loc[1], end_loc[1]]))
+                          [start_loc[1], end_loc[1]], linewidth=1))
     colors.append(Black)
     patches.append(Line2D([start_loc[0] + patch_size, end_loc[0]],
-                          [start_loc[1], end_loc[1]]))
+                          [start_loc[1], end_loc[1]], linewidth=1))
     colors.append(Black)
     patches.append(Line2D([start_loc[0], end_loc[0]],
-                          [start_loc[1] + patch_size, end_loc[1]]))
+                          [start_loc[1] + patch_size, end_loc[1]],
+                          linewidth=1))
     colors.append(Black)
     patches.append(Line2D([start_loc[0] + patch_size, end_loc[0]],
-                          [start_loc[1] + patch_size, end_loc[1]]))
+                          [start_loc[1] + patch_size, end_loc[1]],
+                          linewidth=1))
     colors.append(Black)
 
 
@@ -102,6 +106,7 @@ def label(xy, text, xy_off=[0, 4]):
 
 
 if __name__ == '__main__':
+
 
     fc_unit_size = 2
     layer_width = 40
